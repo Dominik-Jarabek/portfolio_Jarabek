@@ -7,10 +7,10 @@ body {
   header {
     text-align: center;
     padding: 40px 0 20px 0;
-    background: #2e97e7;
-    color: white;
-    position: sticky; top: 0; z-index: 10;
-    box-shadow: 0 3px 10px #cfd8dc33;
+    background: transparent;    /* NEBO vynech řádek background úplně */
+    color: inherit;             /* Nebo #222, nebo prostě smaž ten řádek */
+    position: static;           /* NEBO vůbec nepiš position */
+    box-shadow: none;           /* Můžeš klidně vynechat */
   }
   .avatar {
     
@@ -430,5 +430,5 @@ body {
     transition: background 0.2s;
     display: flex; align-items: center; justify-content: center;
   }
-  .ai-assistant-reopen:hover { background: #fed502; color: #0a67c2; }
+  .ai-assistant-reopen:hover { background: #0a284e; color: #0a67c2; }
   
