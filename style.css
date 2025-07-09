@@ -238,3 +238,44 @@ body {
     color: #fff;
     box-shadow: 0 4px 15px #2196f355;
   }
+  .background-ornaments {
+    position: fixed;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .ornament {
+    position: absolute;
+    opacity: 0.96;
+    filter: blur(1.1px);
+    will-change: transform, opacity;
+    animation-timing-function: ease-in-out;
+    transition: opacity 0.5s;
+  }
+  
+  .ornament-quote1   { left: 1vw;  top: 4vh;   animation: floatq1 11s infinite alternate;}
+  .ornament-quote2   { right: 4vw; top: 13vh;  animation: floatq2 13s infinite alternate;}
+  .ornament-quote3   { left: 6vw;  top: 49vh;  animation: floatq3 17s infinite alternate;}
+  .ornament-bubble   { left: 38vw; top: 78vh;  animation: floatbubble 17s infinite alternate;}
+  .ornament-bubble2  { right: 29vw; top: 61vh; animation: floatbubble2 19s infinite alternate;}
+  .ornament-code     { left: 16vw; top: 59vh;  animation: floatcode 15s infinite alternate;}
+  .ornament-code2    { right: 22vw; top: 9vh;  animation: floatcode2 14s infinite alternate;}
+  .ornament-letterA  { right: 10vw; top: 68vh; animation: floatA 15s infinite alternate;}
+  .ornament-letterJ  { left: 57vw; top: 10vh;  animation: floatJ 13s infinite alternate;}
+  .ornament-letterE  { right: 16vw; top: 34vh; animation: floatE 16s infinite alternate;}
+  .ornament-wave     { left: 24vw; top: 23vh;  animation: floatW 14s infinite alternate;}
+  
+  /* Animace pro ornamenty */
+  @keyframes floatq1 { 0%{transform:scale(1.02) rotate(-8deg) translateY(0px);} 100%{transform:scale(1.14) rotate(-2deg) translateY(64px) translateX(34px);} }
+  @keyframes floatq2 { 0%{transform:scale(1.01) rotate(4deg) translateY(0px);} 100%{transform:scale(1.10) rotate(-11deg) translateY(-45px) translateX(-29px);} }
+  @keyframes floatq3 { 0%{transform:scale(1.04) rotate(5deg) translateY(0px);} 100%{transform:scale(1.11) rotate(-7deg) translateY(-47px) translateX(19px);} }
+  @keyframes floatbubble { 0%{transform:scale(1.06) rotate(6deg) translateY(0px);} 100%{transform:scale(1.17) rotate(-6deg) translateY(55px) translateX(34px);} }
+  @keyframes floatbubble2 { 0%{transform:scale(1.00) rotate(-2deg) translateY(0px);} 100%{transform:scale(1.13) rotate(7deg) translateY(-43px) translateX(28px);} }
+  @keyframes floatcode { 0%{transform:scale(0.96) rotate(0deg) translateY(0px);} 100%{transform:scale(1.11) rotate(11deg) translateY(-57px) translateX(23px);} }
+  @keyframes floatcode2 { 0%{transform:scale(1.03) rotate(-4deg) translateY(0px);} 100%{transform:scale(1.15) rotate(9deg) translateY(44px) translateX(-23px);} }
+  @keyframes floatA { 0%{transform:scale(1.00) rotate(11deg) translateY(0px);} 100%{transform:scale(1.13) rotate(-9deg) translateY(49px) translateX(-19px);} }
+  @keyframes floatJ { 0%{transform:scale(0.95) rotate(7deg) translateY(0px);} 100%{transform:scale(1.08) rotate(-7deg) translateY(38px) translateX(19px);} }
+  @keyframes floatE { 0%{transform:scale(0.99) rotate(-5deg) translateY(0px);} 100%{transform:scale(1.13) rotate(11deg) translateY(-41px) translateX(-24px);} }
+  @keyframes floatW { 0%{transform:scale(1.03) rotate(0deg) translateY(0px);} 100%{transform:scale(1.11) rotate(8deg) translateY(29px) translateX(27px);} }
+  
