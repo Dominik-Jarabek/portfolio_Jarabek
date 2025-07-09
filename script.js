@@ -99,4 +99,34 @@ document.getElementById('ai-close').onclick = function(e) {
       header.classList.remove('shrink');
     }
   });
+  document.getElementById('showCvBtn').addEventListener('click', function() {
+    document.querySelector('.CvModal').style.display = 'flex';
+  });
+  
+  document.getElementById('closeCvModal').addEventListener('click', function() {
+    document.querySelector('.CvModal').style.display = 'none';
+  });
+  
+  const modal = document.querySelector('.CvModal');
+
+  document.getElementById('showCvBtn').addEventListener('click', function() {
+    modal.style.display = 'flex';
+  });
+  
+  document.getElementById('closeCvModal').addEventListener('click', function() {
+    modal.style.display = 'none';
+  });
+  
+  window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+  
+  window.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && modal.style.display === 'flex') {
+      modal.style.display = 'none';
+    }
+  });
+  
   

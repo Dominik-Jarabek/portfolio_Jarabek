@@ -16,6 +16,7 @@
         <a href="#about">O mně</a>
         <a href="#skills">Dovednosti</a>
         <a href="#projects">Projekty</a>
+        <a href="#cv">Životopis</a>
         <a href="#contact">Kontakt</a>
       </nav>
     </header>
@@ -74,7 +75,22 @@
           </div>
         </div>
       </section>
-
+      <section id="cv">
+        <h2 class="section-title">Životopis</h2>
+    
+        <div class="cv-buttons" style="margin-top: 10px;">
+            <button id="showCvBtn">Zobrazit životopis</button>
+          <a href="Jarabek_CV.pdf" download>
+            <button>Stáhnout životopis</button>
+          </a>
+        </div>
+      </section>
+      <div id="cvModal" class="CvModal" style="display:none;">
+        <div class="modal-content">
+          <span class="close" id="closeCvModal">&times;</span>
+          <embed src="Jarabek_CV.pdf" type="application/pdf" width="100%" height="600px" />
+        </div>
+      </div>
       <section id="contact">
         <h2 class="section-title">Kontakt</h2>
         <ul class="contact-list">
@@ -176,6 +192,7 @@
   </div>
   <button id="ai-open-btn" class="ai-assistant-reopen" style="display:none;">💬</button>
 
+ 
   <script src="script.js"></script>
 </body>
 </html>
