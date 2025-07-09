@@ -1,0 +1,239 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #1f73 0%, #1f73e1 100%);
+    color: #222;
+    margin: 0; padding: 0;
+  }
+  header {
+    text-align: center;
+    padding: 40px 0 20px 0;
+    background: #2e97e7;
+    color: white;
+    position: sticky; top: 0; z-index: 10;
+    box-shadow: 0 3px 10px #cfd8dc33;
+  }
+  .avatar {
+    
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;              /* kulatá fotka */
+    object-fit: cover;
+    box-shadow: 0 4px 20px #2196f355, 0 0px 0 #fff7;
+    border: 3px solid #fff;
+    display: block;
+    margin: 10px auto 14px auto;        /* zarovná na střed, mezera pod fotkou */
+  }
+  
+  
+  nav a {
+    color: #0f7fa5; text-decoration: none; margin: 0 15px;
+    font-weight: bold; font-size: 1.1em; transition: color .2s;
+    position: relative;
+  display: inline-block; /* pro správný efekt underline */
+
+  }
+  nav a::after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, #2196f3 60%, #4fc3f7 100%);
+    border-radius: 2px;
+    transition: width .3s cubic-bezier(.6,.2,.2,1);
+  }
+  nav a:hover::after, nav a:focus::after {
+    width: 80%;
+  }
+  nav a:hover { color: #0a284e; }
+  main { max-width: 740px; margin: 32px auto; padding: 0 18px;}
+  section { margin-bottom: 54px;}
+  h1, h2 { margin-bottom: .3em; text-align: center;}
+  .subtitle {text-align: center; font-size: 1.1em; font-weight: 400; margin-bottom: 18px;}
+  .skills-list {margin: 28px 0;}
+  .skill-bar {display: flex; align-items: center; margin-bottom: 17px;}
+  .skill-bar span {width: 120px;}
+  .skill-bar .bar {
+    background: linear-gradient(90deg, #81d4fa 0%, #1565c0 100%);
+    height: 18px; border-radius: 9px; margin-left: 13px;
+    width: 0; transition: width 1s cubic-bezier(.7,.5,.3,1);
+  }
+  .project-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 3px 16px #bdbdbd33;
+    padding: 22px;
+    margin-bottom: 22px;
+  }
+  .project-card h3 {margin: 0;}
+  .project-card button, .project-card a {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    padding: 6px 18px;
+    margin-top: 8px;
+    margin-right: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .project-card a:hover, .project-card button:hover {
+    background: #388ee7;
+  }
+  footer {
+    background: #1565c0;
+    color: #fff;
+    text-align: center;
+    padding: 22px 0;
+    letter-spacing: 1px;
+  }
+  .modal {
+    display: none; position: fixed; z-index: 20; left: 0; top: 0;
+    width: 100%; height: 100%; background: rgba(30, 70, 120, 0.25);
+  }
+  .modal-content {
+    background: #fff; border-radius: 16px;
+    margin: 80px auto; padding: 28px 36px; width: 320px; text-align: center; box-shadow: 0 6px 32px #1976d244;
+    position: relative;
+  }
+  .close {
+    position: absolute; top: 12px; right: 22px; font-size: 2em; cursor: pointer; color: #1976d2;
+  }
+  @media (max-width: 650px) {
+    .avatar { width: 68px; height: 68px;}
+    .modal-content { width: 90%; padding: 16px; }
+    main { max-width: 98vw; padding: 0 2vw;}
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  .main-nav {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1px 0 1px 0;
+    margin: 0 auto;
+    background: rgba(255,255,255, 0.15);        /* jemná průhlednost */
+    border-radius: 22px;                        /* zaoblení všech stran */
+    border: 1.5px solid rgba(140,170,200,0.26); /* decentní rámeček */
+    box-shadow:
+      0 2px 14px 0 rgba(30,60,110,0.10),
+      0 1.5px 0 0 #fff2 inset,
+      0 2px 7px 0 #aecdf229 inset;
+    backdrop-filter: blur(10px) saturate(130%);
+    -webkit-backdrop-filter: blur(10px) saturate(130%);
+    z-index: 12;
+  }
+  
+  .main-nav a {
+    color: #1976d2;
+    margin: 0 50px ;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.11em;
+    letter-spacing: .5px;
+    padding: 2px 2px;
+    transition: color .18s;
+    border-radius: 9px;
+    display: inline-block;
+  }
+  .main-nav a:hover {
+    background: rgba(140,190,255, 0.11);
+    color: #0d47a1;
+  }
+  
+  @media (max-width: 700px) {
+    .main-nav {
+      padding: 8px 0 7px 0;
+      border-radius: 18px;
+    }
+    .main-nav a { margin: 0 8px; }
+  }
+  .skills-list {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .skills-list li {
+    background: rgba(33, 150, 243, 0.07);
+    margin-bottom: 10px;
+    padding: 9px 20px;
+    border-radius: 14px;
+    font-size: 1.08em;
+    box-shadow: 0 2px 6px #4fc3f711;
+    transition: background .2s;
+  }
+  .skills-list li:hover {
+    background: rgba(33, 150, 243, 0.17);
+  }
+  .section-title {
+    
+    padding: 8px 26px;
+    border-radius: 13px;
+    font-size: 1.45em;
+    font-weight: 700;
+    transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+  
+  .section-title:hover, .section-title:focus {
+    background: rgba(33,150,243,0.17);
+    box-shadow: 0 2px 6px #4fc3f722;
+    color: #0d47a1;
+    cursor: pointer;
+  }
+  
+  section {
+    text-align: center;
+  }
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 400px;
+  }
+  .contact-list li {
+    margin-bottom: 15px;
+  }
+  .contact-linkedin {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 18px;
+    background: rgba(10,102,194,0.07);
+    border-radius: 11px;
+    color: #06213e;
+    font-weight: 600;
+    font-size: 1.08em;
+    text-decoration: none;
+    transition: background .2s, color .2s, box-shadow .2s;
+    box-shadow: 0 2px 6px #0A66C216;
+  }
+  .contact-linkedin:hover {
+    background: #0A66C2;
+    color: #fff;
+    box-shadow: 0 4px 15px #0A66C244;
+  }
+  
+  .contact-email {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 18px;
+    background: rgba(33,150,243,0.08);
+    border-radius: 11px;
+    color: #06213e;
+    font-weight: 600;
+    font-size: 1.08em;
+    text-decoration: none;
+    transition: background .2s, color .2s, box-shadow .2s;
+    box-shadow: 0 2px 6px #2196f315;
+  }
+  .contact-email:hover {
+    background: #2196f3;
+    color: #fff;
+    box-shadow: 0 4px 15px #2196f355;
+  }
