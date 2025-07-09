@@ -1,3 +1,4 @@
+
 function openMiniGame() {
     document.getElementById('minigame-modal').style.display = "block";
     const btn = document.getElementById('gameBtn');
@@ -90,4 +91,12 @@ document.getElementById('ai-close').onclick = function(e) {
     }, 600);
     history.scrollTop = history.scrollHeight;
   };
-    
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if(window.scrollY > 70) {
+      header.classList.add('shrink');
+    } else {
+      header.classList.remove('shrink');
+    }
+  });
+  
