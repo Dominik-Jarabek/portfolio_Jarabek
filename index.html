@@ -159,7 +159,28 @@
     </svg>
   
   </div>
-  
+  <div id="ai-assistant" class="ai-assistant-hidden">
+    <div class="ai-avatar">
+      <img src="Profilovka.jpg" alt="AI Avatar" />
+    </div>
+    <div class="ai-panel" id="ai-panel">
+      <div class="ai-message" id="ai-message">
+        <span>Jak vám mohu pomoci?</span>
+        <button id="ai-close">×</button>
+      </div>
+      <div class="ai-chat" id="ai-chat" style="display:none;">
+        <div class="ai-chat-history" id="ai-chat-history">
+          <!-- Zprávy se zobrazí sem -->
+        </div>
+        <form id="ai-chat-form" autocomplete="off">
+          <input type="text" id="ai-chat-input" placeholder="Napište svůj dotaz..." required />
+          <button type="submit">Odeslat</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <button id="ai-open-btn" class="ai-assistant-reopen" style="display:none;">💬</button>
+    
 
 <script src="script.js"></script>
 </body>
