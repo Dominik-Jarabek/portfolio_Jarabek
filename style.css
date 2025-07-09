@@ -773,3 +773,53 @@ body {
     color: #007bff;
   }
   
+  /* --- Responzivita pro mobilní zařízení --- */
+@media (max-width: 650px) {
+    /* Avatar menší */
+    .avatar { 
+      width: 68px; 
+      height: 68px; 
+    }
+    /* Modální okno životopisu větší a lépe na mobil */
+    .CvModal .modal-content { 
+      width: 95vw; 
+      height: 90vh; 
+      padding: 12px; 
+    }
+    main { 
+      max-width: 98vw; 
+      padding: 0 4vw; 
+    }
+    /* Navigace z vodorovné na svislou */
+    .main-nav {
+      flex-direction: column;
+      gap: 14px;
+      max-width: 100%;
+      padding: 0;
+    }
+    .main-nav a {
+      padding: 10px 0;
+      font-size: 1.1em;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 12px;
+      text-align: center;
+    }
+  }
+  
+  /* Pro opravdu malé obrazovky (malé telefony) */
+  @media (max-width: 400px) {
+    body {
+      font-size: 14px;
+    }
+    .skills-list li, .project-card p {
+      font-size: 0.95em;
+    }
+    header h1 {
+      font-size: 1.5em;
+    }
+    header .subtitle {
+      font-size: 0.9em;
+    }
+  }
+  
