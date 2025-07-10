@@ -1,14 +1,8 @@
 {
-  "name": "portfolio-jarabek",
-  "version": "1.0.0",
-  "main": "openai-proxy.js",
-  "scripts": {
-    "start": "node openai-proxy.js"
-  },
   "dependencies": {
-    "express": "^4.19.2",
-    "dotenv": "^16.4.5",
-    "node-fetch": "^2.6.7",
-     "cors": "^2.8.5"
+    "axios": "^1.10.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0"
   }
 }

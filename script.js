@@ -66,7 +66,7 @@ document.getElementById('ai-panel').addEventListener('click', function(e){
     document.getElementById('ai-chat-input').focus();
 });
 
-// --- AI chatbot --- //
+// --- ZDE začíná úprava AI chatbota: --- //
 document.getElementById('ai-chat-form').onsubmit = async function(e){
     e.preventDefault();
     const input = document.getElementById('ai-chat-input');
@@ -74,14 +74,14 @@ document.getElementById('ai-chat-form').onsubmit = async function(e){
     const msg = input.value.trim();
     if(!msg) return;
 
-    // Uživatelská zpráva
+    // Přidej uživatelskou zprávu
     const userMsg = document.createElement('div');
     userMsg.className = "ai-chat-msg user";
     userMsg.textContent = msg;
     history.appendChild(userMsg);
     input.value = "";
 
-    // "Přemýšlím..." loading
+    // Loading zpráva
     const aiMsg = document.createElement('div');
     aiMsg.className = "ai-chat-msg ai";
     aiMsg.textContent = "Přemýšlím...";
@@ -89,56 +89,48 @@ document.getElementById('ai-chat-form').onsubmit = async function(e){
     history.scrollTop = history.scrollHeight;
 
     try {
-        // Pokud běžíš na Renderu a máš vše pohromadě, používej pouze relativní cestu:
-        const response = await fetch('/api/chat', {
+        const response = await fetch('http://localhost:3333/api/chat', { // ZDE nastav URL svého proxy serveru!
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                messages: [
-                    {
-                        role: "system",
-                        content: `
+           body: JSON.stringify({
+    messages: [
+        {role: "system", content: `
 Jsem Dominik Jarábek, je mi 31 let. Bydlím v Lipové u Šluknova.
 
-Studuji Speciální pedagogiku na Univerzitě J. E. Purkyně v Ústí nad Labem (od roku 2024). Maturitu mám z oboru Informační a komunikační technologie na VOŠ a SŠ ve Varnsdorfu.
+V současnosti studuji Speciální pedagogiku na Univerzitě J. E. Purkyně v Ústí nad Labem (od roku 2024). Maturitu mám z oboru Informační a komunikační technologie na VOŠ a SŠ ve Varnsdorfu.
 
 Od roku 2022 pracuji jako učitel německého jazyka na Střední lesnické škole ve Šluknově. Předtím jsem byl několik let seřizovačem a vedoucím směny ve firmě Pulp-Tec GmbH v Německu, kde jsem měl pod sebou tým osmi lidí. Krátce jsem také pracoval jako dělník v Oppacher Mineralquellen v Německu a v BeA CS v Lobendavě, kde jsem využíval MS Excel. Mám zkušenost i jako instruktor dětské sportovní přípravky a vedoucí na letních táborech.
 
-V IT jsem expert na Microsoft Office, pokročile ovládám Adobe Photoshop, Lightroom a Illustrator, stejně tak AutoCAD. Umím základy webového vývoje (HTML, CSS, JavaScript).
+Co se týče IT dovedností, jsem expert na Microsoft Office, pokročile ovládám Adobe Photoshop, Lightroom a Illustrator, stejně tak AutoCAD. Umím základy webového vývoje (HTML, CSS, JavaScript).
 
 Mezi mé silné stránky patří učenlivost, samostatnost, týmová práce, řešení konfliktů a flexibilita. Mám několik certifikátů, například Mezinárodní cenu vévody z Edinburghu, školení Nevypusť duši (duševní zdravověda pro učitele), správu TikTok a základy umělé inteligence.
 
-Mluvím plynule německy (B2, certifikát Goethe Institut), anglicky na úrovni začátečníka.
+Mluvím plynule německy (úroveň B2, certifikát Goethe Institut), anglicky na úrovni začátečníka.
 
 Mezi mé zájmy patří sport, tvorba webových stránek a grafiky, četba, osobní rozvoj a cestování.
 
 Odpovídám vždy za sebe v první osobě, ne jako AI, ale jako člověk Dominik. Pokud dostanu otázku na zkušenosti, znalosti nebo dovednosti, odpovídám osobně na základě výše uvedených informací. Odpovídám stručně, lidsky a česky.
-                        `
-                    },
-                    {
-                        role: "user",
-                        content: msg
-                    }
-                ]
-            })
+
+`},
+        {role: "user", content: msg}
+    ]
+})
+
         });
 
         if (!response.ok) {
             aiMsg.textContent = "Omlouvám se, něco se pokazilo na serveru 😕";
         } else {
             const data = await response.json();
-            // U backendu na Renderu by výstup měl být: { reply: "...text..." }
-            aiMsg.textContent = data.reply || "Odpověď nebyla nalezena.";
+            aiMsg.textContent = data.choices?.[0]?.message?.content || "Odpověď nebyla nalezena.";
         }
     } catch (error) {
         aiMsg.textContent = "Nepodařilo se spojit se serverem. Zkuste to později.";
     }
     history.scrollTop = history.scrollHeight;
 };
-
-// ... zbytek (modal, scrollování, atd. zůstává) ...
 
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
